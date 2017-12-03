@@ -43,6 +43,8 @@
     <Compile Include="BE\DeliveryEntity.cs" />
     <Compile Include="BE\DeliveryTypeEnum.cs" />
     <Compile Include="BL\DeliveryService.cs" />
+    <Compile Include="BL\Interface\IShipper.cs" />
+    <Compile Include="BL\Shipper\TCat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

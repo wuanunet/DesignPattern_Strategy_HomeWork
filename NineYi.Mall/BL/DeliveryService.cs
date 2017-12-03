@@ -1,5 +1,7 @@
 ﻿using System;
 using NineYi.Mall.BE;
+using NineYi.Mall.BL.Interface;
+using NineYi.Mall.BL.Shipper;
 
 namespace NineYi.Mall.BL
 {
@@ -20,18 +22,12 @@ namespace NineYi.Mall.BL
                 throw new ArgumentException("請檢查 deliveryItem 參數");
             }
 
+            IShipper shipper = null;
             var fee = default(double);
             if (deliveryItem.DeliveryType == DeliveryTypeEnum.TCat)
             {
-                var weight = deliveryItem.ProductWeight;
-                if (weight > 20)
-                {
-                    fee = 400d;
-                }
-                else
-                {
-                    fee = 100 + weight * 10;
-                }
+                shipper = new TCat();
+                fee = shipper.CalculateFee(deliveryItem);
                 return fee;
             }
             else if (deliveryItem.DeliveryType == DeliveryTypeEnum.KTJ)
