@@ -24,7 +24,7 @@ namespace NineYi.Mall.BL
 
             var shipperFactory = new ShipperFactory();
             IShipper shipper = shipperFactory.GetShipper(deliveryItem);
-            var fee = shipper.CalculateFee(deliveryItem); ;
+            var fee = shipper.CalculateFee(deliveryItem);
             return fee;
         }
     }
