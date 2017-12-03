@@ -24,14 +24,14 @@ namespace NineYi.Mall.BL.Factory
         /// <summary>
         /// 取得貨運商
         /// </summary>
-        /// <param name="deliveryItem">宅配物件</param>
+        /// <param name="deliveryType">宅配對象類別</param>
         /// <returns>貨運商</returns>
         /// <exception cref="ArgumentNullException"></exception>
-        public IShipper GetShipper(DeliveryEntity deliveryItem)
+        public IShipper GetShipper(DeliveryTypeEnum deliveryType)
         {
-            if (this._shippers.TryGetValue(deliveryItem.DeliveryType, out var shipper) == false)
+            if (this._shippers.TryGetValue(deliveryType, out var shipper) == false)
             {
-                throw new ArgumentNullException($"請確認貨運商資料 {nameof(deliveryItem)}");
+                throw new ArgumentNullException($"請確認貨運商對象 {nameof(deliveryType)}");
             }
 
             return shipper;

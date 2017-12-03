@@ -23,7 +23,7 @@ namespace NineYi.Mall.BL
             }
 
             var shipperFactory = new ShipperFactory();
-            IShipper shipper = shipperFactory.GetShipper(deliveryItem);
+            IShipper shipper = shipperFactory.GetShipper(deliveryItem.DeliveryType);
             var fee = shipper.CalculateFee(deliveryItem);
             return fee;
         }
