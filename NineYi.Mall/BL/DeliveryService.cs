@@ -30,23 +30,10 @@ namespace NineYi.Mall.BL
                 fee = shipper.CalculateFee(deliveryItem);
                 return fee;
             }
-            else if (deliveryItem.DeliveryType == DeliveryTypeEnum.KTJ)
+            else if (deliveryItem.DeliveryType == DeliveryTypeEnum.Kerrytj)
             {
-                var length = deliveryItem.ProductLength;
-                var width = deliveryItem.ProductWidth;
-                var height = deliveryItem.ProductHeight;
-
-                var size = length * width * height;
-
-                if (length > 50 || width > 50 || height > 50)
-                {
-                    fee = size * 0.00001 * 110 + 50;
-                }
-                else
-                {
-                    fee = size * 0.00001 * 120;
-                }
-
+                shipper = new Kerrytj();
+                fee = shipper.CalculateFee(deliveryItem);
                 return fee;
             }
             else if (deliveryItem.DeliveryType == DeliveryTypeEnum.PostOffice)

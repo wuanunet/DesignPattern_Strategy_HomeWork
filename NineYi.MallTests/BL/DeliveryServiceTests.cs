@@ -66,7 +66,7 @@ namespace NineYi.Mall.BL.Tests
                             ProductWidth = 40,
                             ProductHeight = 50,
                             ProductWeight = 25,
-                            DeliveryType = DeliveryTypeEnum.KTJ
+                            DeliveryType = DeliveryTypeEnum.Kerrytj
                         },
                         //// 預期運費
                         72.000000000000014d
@@ -80,7 +80,7 @@ namespace NineYi.Mall.BL.Tests
                             ProductWidth = 60,
                             ProductHeight = 80,
                             ProductWeight = 15,
-                            DeliveryType = DeliveryTypeEnum.KTJ
+                            DeliveryType = DeliveryTypeEnum.Kerrytj
                         },
                         //// 預期運費
                         366.8d

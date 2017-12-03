@@ -11,9 +11,9 @@
         TCat,
 
         /// <summary>
-        /// 大榮
+        /// 大榮貨運
         /// </summary>
-        KTJ,
+        Kerrytj,
 
         /// <summary>
         /// 郵局
