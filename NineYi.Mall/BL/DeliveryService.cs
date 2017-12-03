@@ -1,7 +1,7 @@
 ﻿using System;
 using NineYi.Mall.BE;
+using NineYi.Mall.BL.Factory;
 using NineYi.Mall.BL.Interface;
-using NineYi.Mall.BL.Shipper;
 
 namespace NineYi.Mall.BL
 {
@@ -22,30 +22,10 @@ namespace NineYi.Mall.BL
                 throw new ArgumentException("請檢查 deliveryItem 參數");
             }
 
-            IShipper shipper = null;
-            var fee = default(double);
-            if (deliveryItem.DeliveryType == DeliveryTypeEnum.TCat)
-            {
-                shipper = new TCat();
-                fee = shipper.CalculateFee(deliveryItem);
-                return fee;
-            }
-            else if (deliveryItem.DeliveryType == DeliveryTypeEnum.Kerrytj)
-            {
-                shipper = new Kerrytj();
-                fee = shipper.CalculateFee(deliveryItem);
-                return fee;
-            }
-            else if (deliveryItem.DeliveryType == DeliveryTypeEnum.PostOffice)
-            {
-                shipper = new PostOffice();
-                fee = shipper.CalculateFee(deliveryItem);
-                return fee;
-            }
-            else
-            {
-                throw new ArgumentException("請檢查 deliveryItem.DeliveryType 參數");
-            }
+            var shipperFactory = new ShipperFactory();
+            IShipper shipper = shipperFactory.GetShipper(deliveryItem);
+            var fee = shipper.CalculateFee(deliveryItem); ;
+            return fee;
         }
     }
 }
